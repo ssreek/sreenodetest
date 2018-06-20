@@ -6,5 +6,10 @@ pipeline {
         sh 'echo "Sree test"'
       }
     }
+    stage('againbuild') {
+      steps {
+        bat 'echo "test"'
+      }
+    }
   }
 }
