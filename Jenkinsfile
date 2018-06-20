@@ -1,15 +1,15 @@
 pipeline {
-  agent any
-  stages {
-    stage('mybuild') {
-      steps {
-        sh 'echo "Sree test"'
-      }
+    agent {
+        docker {
+            image 'node:6-alpine' 
+            args '-p 6000:6000' 
+        }
     }
-    stage('againbuild') {
-      steps {
-        bat 'echo "test"'
-      }
+    stages {
+        stage('Build') { 
+            steps {
+                sh 'npm install' 
+            }
+        }
     }
-  }
 }
